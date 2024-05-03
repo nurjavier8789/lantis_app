@@ -1,4 +1,4 @@
-# lantis_app
+# lantis
 
 Ini adalah Tugas Akhir
 

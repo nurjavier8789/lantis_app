@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+
+import 'pages/register.dart';
+import 'pages/login.dart';
 
 void main() {
-  runApp(const MyApp());
-}
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   const SystemUiOverlayStyle(
+  //     statusBarIconBrightness: Brightness.dark,
+  //     systemNavigationBarColor: Colors.white,
+  //   ),
+  // );
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(),
-    );
-  }
+  runApp(
+    MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const login(),
+        '/register': (context) => const register(),
+      },
+    )
+  );
 }
