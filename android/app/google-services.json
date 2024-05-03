@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "452666845798",
+    "project_id": "lantisapp2024",
+    "storage_bucket": "lantisapp2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452666845798:android:72762ffce7fb5d9b759ba7",
+        "android_client_info": {
+          "package_name": "id.mokletdev.lantis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_evWnl8thGwx5lPYDWMyzRi5vzaKzzxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
