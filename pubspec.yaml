@@ -31,23 +31,20 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
-  path_provider: ^2.1.3
-  flutter_launcher_icons: ^0.13.1
+  shared_preferences: ^2.2.3
   firebase_core: ^2.30.1
-
-flutter_launcher_icons:
-  image_path: "assets/lantis_icon.png"
-  android: true
-  ios: true
+  firebase_auth: ^4.19.4
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -57,6 +54,20 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flutter_launcher_icons:
+  image_path: "assets/lantis_icon.png"
+  android: true
+  ios: true
+
+flutter_native_splash:
+  background_image: "assets/smoke_white.png"
+  image: "assets/LogoTag.png"
+  android_12:
+    image: "assets/LogoSplash.png"
+    color: "#ffffff"
+    icon_background_color: "#ffffff"
+  android: true
+  ios: true
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -69,6 +80,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/poster/
+    - assets/card/
+    - assets/videos/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
