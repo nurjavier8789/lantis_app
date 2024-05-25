@@ -30,4 +30,36 @@ class subWidgetss {
       ),
     );
   }
+
+  Container videoList(String filePath, String title, int views, String date, int like) {
+    return Container(
+      margin: EdgeInsets.only(right: 16),
+      width: 264,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(filePath, width: 264, fit: BoxFit.fill),
+          SizedBox(height: 8),
+          Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("$views Ditonton | $date", style: TextStyle(color: Color.fromARGB(255, 123, 123, 123))),
+              Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("$like", style: TextStyle(color: Color.fromARGB(255, 123, 123, 123))),
+                    SizedBox(width: 4),
+                    Icon(Icons.thumb_up_outlined, color: Color.fromARGB(255, 123, 123, 123), size: 15,),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }

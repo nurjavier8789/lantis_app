@@ -54,6 +54,7 @@ class _overlayState extends State<overlay> {
             });
           },
           selectedItemColor: Color.fromARGB(255, 221, 180, 34),
+          backgroundColor: Color.fromARGB(255, 234, 229, 229),
           selectedFontSize: 12,
           unselectedFontSize: 12,
           iconSize: 24,

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -137,8 +138,11 @@ class _homessState extends State<homess> {
 
   @override
   Widget build(BuildContext context) {
+    ScrollController scrollController = ScrollController();
+
     return Scaffold(
       body: ListView(
+        controller: scrollController,
         children: [
           widgetss().location(),
           Column(
@@ -154,7 +158,20 @@ class _homessState extends State<homess> {
               widgetss().kategori(),
               widgetss().eventCards(MediaQuery.of(context).size.width),
               widgetss().videoSection(),
+              SizedBox(height: 24),
               Divider(),
+              SizedBox(height: 64),
+              widgetss().footerHome(),
+              Align(
+                alignment: Alignment.center,
+                child: InkWell(
+                  onTap: () {
+                    scrollController.animateTo(0, duration: Duration(milliseconds: 300), curve: Curves.linear);
+                  },
+                  child: Text("Back to top", style: TextStyle(fontWeight: FontWeight.w600, color: Color.fromARGB(255, 2, 48, 73))),
+                ),
+              ),
+              SizedBox(height: 80),
             ],
           ),
         ],

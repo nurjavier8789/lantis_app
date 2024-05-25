@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 import 'subWidgets.dart';
 
 class widgetss {
@@ -164,16 +166,74 @@ class widgetss {
 
   Container videoSection() {
     return Container(
-      margin: EdgeInsets.only(top: 12, left: 8),
+      margin: EdgeInsets.only(top: 12, left: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Video", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
           SizedBox(height: 10),
           Text("Trailer, wawancara, dan lainnya!", style: TextStyle(color: Color.fromARGB(255, 123, 123, 123))),
-          SizedBox(height: 20),
+          SizedBox(height: 16),
+          Container(
+            height: 230,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                subWidgetss().videoList("assets/videos/video_0.png", "OFFICIAL AFTER MOVIE PESTAPORA 2023 - PRESEN...", 569, "31 Des 2023", 269),
+                subWidgetss().videoList("assets/videos/video_1.png", "Synchronize Fest 2024 : Line-Up Anouncement Phase 1", 632, "28 Des 2023", 331),
+                subWidgetss().videoList("assets/videos/video_2.png", "The Jakarta International Java Jazz Festival Is Set to Return...", 123, "27 Nov 2023", 45),
+                subWidgetss().videoList("assets/videos/video_3.png", "Festival Pemersatu Rakyat bersama Kiki Aulia Ucup | ...", 167, "27 Sep 2023", 23),
+                subWidgetss().videoList("assets/videos/video_4.png", "WELCOME TO PESTAPORA BARENG IM3🍎🍊🍋🍋🍌🍌", 126, "21 Sep 2023", 36),
+                subWidgetss().videoList("assets/videos/video_5.png", "Sesi Wawancara - Press Conference PESTAPORA 2023", 10, "21 Sep 2023", 3),
+                subWidgetss().videoList("assets/videos/video_6.png", "Behind Synchronize Fest 2023!!. Saksikan IKUT ...", 132, "9 Sep 2023", 12),
+                subWidgetss().videoList("assets/videos/video_7.png", "LINE UP PESTAPORA 2023 🍓🍇🍉", 457, "24 Jul 2023", 230),
+                subWidgetss().videoList("assets/videos/video_8.png", "APA ITU SPECIAL LINEUP SYNCHRONIZE FEST 2023?", 324, "24 Jul 2023", 120),
+                subWidgetss().videoList("assets/videos/video_9.png", "Jakarta International BNI Java Jazz Festival 2023 | Official...", 545, "10 Jul 2023", 211),
+              ],
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  Column footerHome() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset("assets/name_text.png", height: 40),
+        SizedBox(height: 8),
+        Text("Portal Tiket Event Terdepan di Indonesia", style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16)),
+        SizedBox(height: 24),
+        Text("Our Social Media:"),
+        SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: () async {
+                await launchUrl(Uri.parse('https://www.instagram.com/kyooshees/'), mode: LaunchMode.externalApplication);
+              },
+              child: Image.asset("assets/ig.png", width: 30),
+            ),
+            SizedBox(width: 40),
+            InkWell(
+              onTap: () async {
+                await launchUrl(Uri.parse('https://twitter.com/PostsOfCats/status/1785658950358028585'), mode: LaunchMode.externalApplication);
+              },
+              child: Image.asset("assets/twitter.png", width: 30),
+            ),
+            SizedBox(width: 40),
+            InkWell(
+              onTap: () async {
+                await launchUrl(Uri.parse('https://www.tiktok.com/@kyoo.69?_t=8jAG5K2Jhjd&_r=1'), mode: LaunchMode.externalApplication);
+              },
+              child: Image.asset("assets/tiktok.png", width: 30),
+            ),
+          ],
+        ),
+        SizedBox(height: 40),
+      ],
     );
   }
 }
