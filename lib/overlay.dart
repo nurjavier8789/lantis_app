@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'pagesSignedIn/home.dart';
-import 'function/widgets.dart';
+import 'pagesSignedIn/resultSearch.dart';
+
+int selectedIndex = 0;
 
 class overlay extends StatefulWidget {
   const overlay({super.key});
+
+  setIndex(int a) {
+    selectedIndex = a;
+  }
 
   @override
   State<overlay> createState() => _overlayState();
 }
 
 class _overlayState extends State<overlay> {
-  int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,11 +27,10 @@ class _overlayState extends State<overlay> {
               index: selectedIndex,
               children: const <Widget>[
                 homess(),
-                homess(),
+                resultSearch(),
                 homess(),
               ],
             ),
-            widgetss().TopApp(),
           ]
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -52,6 +55,11 @@ class _overlayState extends State<overlay> {
             setState(() {
               selectedIndex = index;
             });
+
+            if (selectedIndex == 1) {
+              Navigator.pushNamed(context, "/search");
+              selectedIndex = 0;
+            }
           },
           selectedItemColor: Color.fromARGB(255, 221, 180, 34),
           backgroundColor: Color.fromARGB(255, 234, 229, 229),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'pagesSignedIn/search.dart';
+import 'pagesSignedIn/resultSearch.dart';
 import 'pages/register.dart';
 import 'pages/login.dart';
 import 'pages/forgorPass.dart';
@@ -16,6 +18,7 @@ void main() {
         '/register': (context) => const register(),
         '/forgetPass': (context) => const forgorPass(),
         '/overlay': (context) => const overlay(),
+        '/search': (context) => const searchPage(),
       },
         theme: ThemeData(
           appBarTheme: AppBarTheme(

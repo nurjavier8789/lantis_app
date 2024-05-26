@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:firebase_core/firebase_core.dart';
-
-import '../function/RegisterAuth.dart';
+import '../functions/RegisterAuth.dart';
 
 class register extends StatefulWidget {
   const register({super.key});

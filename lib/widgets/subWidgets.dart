@@ -62,4 +62,38 @@ class subWidgetss {
       ),
     );
   }
+
+  Row popularSearchCard(String filePath, String judul, String harga) {
+    return Row(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Image.asset(filePath, height: 88, width: 94, fit: BoxFit.cover),
+        ),
+        SizedBox(width: 20),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(judul, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+            SizedBox(height: 4),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Icon(Icons.location_on_outlined, size: 18, color: Color.fromARGB(255, 85, 200, 95)),
+                Text("Gambir Expo Kemayoran, Jakarta Pusat", style: TextStyle(color: Color.fromARGB(255, 112, 118, 123), fontSize: 13)),
+              ],
+            ),
+            SizedBox(height: 4),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text("Rp ", style: TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 254, 196, 32))),
+                Text(harga, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 }

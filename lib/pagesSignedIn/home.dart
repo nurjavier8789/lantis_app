@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 
-import '../function/widgets.dart';
+import '../widgets/homeWidgets.dart';
 
 class homess extends StatefulWidget {
   const homess({super.key});
@@ -38,13 +38,18 @@ class _homessState extends State<homess> {
               },
             ),
             items: [
-              Container(
-                margin: EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 44, 69, 133), width: 4),
-                  borderRadius: BorderRadius.circular(15),
+              InkWell(
+                onTap: () {
+                  print("Clicked! Ready to go!!");
+                },
+                child: Container(
+                  margin: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Color.fromARGB(255, 44, 69, 133), width: 4),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Image.asset("assets/poster/gambar_1.png"),
                 ),
-                child: Image.asset("assets/poster/gambar_1.png"),
               ),
               Container(
                 margin: EdgeInsets.all(4),
@@ -141,39 +146,45 @@ class _homessState extends State<homess> {
     ScrollController scrollController = ScrollController();
 
     return Scaffold(
-      body: ListView(
-        controller: scrollController,
+      body: Stack(
         children: [
-          widgetss().location(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ListView(
+            controller: scrollController,
             children: [
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Text("Special Events for you", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
+              widgetss().location(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Text("Special Events for you", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
+                  ),
+                  carousel(),
+                  SizedBox(height: 12),
+                  widgetss().exploreText(MediaQuery.of(context).size.width),
+                  widgetss().kategori(),
+                  widgetss().eventCards(MediaQuery.of(context).size.width),
+                  widgetss().videoSection(),
+                  SizedBox(height: 24),
+                  Divider(),
+                  SizedBox(height: 64),
+                  widgetss().footerHome(),
+                  Align(
+                    alignment: Alignment.center,
+                    child: InkWell(
+                      onTap: () {
+                        scrollController.animateTo(0, duration: Duration(milliseconds: 300), curve: Curves.linear);
+                      },
+                      child: Text("Back to top", style: TextStyle(fontWeight: FontWeight.w600, color: Color.fromARGB(255, 2, 48, 73))),
+                    ),
+                  ),
+                  SizedBox(height: 80),
+                ],
               ),
-              carousel(),
-              SizedBox(height: 12),
-              widgetss().exploreText(MediaQuery.of(context).size.width),
-              widgetss().kategori(),
-              widgetss().eventCards(MediaQuery.of(context).size.width),
-              widgetss().videoSection(),
-              SizedBox(height: 24),
-              Divider(),
-              SizedBox(height: 64),
-              widgetss().footerHome(),
-              Align(
-                alignment: Alignment.center,
-                child: InkWell(
-                  onTap: () {
-                    scrollController.animateTo(0, duration: Duration(milliseconds: 300), curve: Curves.linear);
-                  },
-                  child: Text("Back to top", style: TextStyle(fontWeight: FontWeight.w600, color: Color.fromARGB(255, 2, 48, 73))),
-                ),
-              ),
-              SizedBox(height: 80),
             ],
           ),
+
+          widgetss().TopApp(),
         ],
       ),
     );
