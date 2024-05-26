@@ -14,7 +14,7 @@ void main() {
   runApp(
     MaterialApp(
       title: "Lantis Ticketing App",
-      initialRoute: '/overlay',
+      initialRoute: '/',
       routes: {
         '/': (context) => const login(),
         '/register': (context) => const register(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lantis/pagesSignedIn/profile.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,7 +20,7 @@ class widgetss {
     return Text(teks, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20));
   }
 
-  Container TopApp() {
+  Container TopApp(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -34,7 +35,12 @@ class widgetss {
             children: [
               Icon(Icons.notifications_none_outlined, size: 26),
               SizedBox(width: 14),
-              Icon(Icons.account_circle_outlined, size: 26),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => profilePage()));
+                },
+                child: Icon(Icons.account_circle_outlined, size: 26),
+              ),
             ],
           ),
         ],

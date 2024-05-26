@@ -84,6 +84,7 @@ flutter:
     - assets/poster/
     - assets/card/
     - assets/videos/
+    - assets/profile_icon/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'pagesSignedIn/home.dart';
 import 'pagesSignedIn/resultSearch.dart';
+import 'pagesSignedIn/transaksi.dart';
+import 'pagesSignedIn/home.dart';
 
 int selectedIndex = 0;
 
@@ -28,7 +29,7 @@ class _overlayState extends State<overlay> {
               children: const <Widget>[
                 homess(),
                 resultSearch(),
-                homess(),
+                receipt(),
               ],
             ),
           ]
