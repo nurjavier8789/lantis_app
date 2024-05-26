@@ -38,17 +38,17 @@ class _overlayState extends State<overlay> {
             BottomNavigationBarItem(
               icon: Image.asset("assets/outline_home.png"),
               activeIcon: Image.asset("assets/home_coloured.png"),
-              label: 'Beranda',
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              activeIcon: Icon(Icons.search),
-              label: 'Cari',
+              icon: Image.asset("assets/search.png"),
+              activeIcon: Image.asset("assets/search_select.png"),
+              label: 'Search',
             ),
             BottomNavigationBarItem(
               icon: Image.asset("assets/trans_history.png"),
-              activeIcon: Image.asset("assets/trans_history.png"),
-              label: 'Transaksi',
+              activeIcon: Image.asset("assets/trans_history_select.png"),
+              label: 'Receipt',
             ),
           ],
           onTap: (int index) {
@@ -65,7 +65,6 @@ class _overlayState extends State<overlay> {
           backgroundColor: Color.fromARGB(255, 234, 229, 229),
           selectedFontSize: 12,
           unselectedFontSize: 12,
-          iconSize: 24,
           currentIndex: selectedIndex,
         ),
       ),

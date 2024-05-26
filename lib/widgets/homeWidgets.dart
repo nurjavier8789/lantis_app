@@ -8,11 +8,11 @@ class widgetss {
   Text greeting() {
     String teks = "";
 
-    if (DateTime.now().hour >= 00 && DateTime.now().hour < 12) {
+    if (DateTime.now().hour >= 00 && DateTime.now().hour <= 11) {
       teks = "Good Morning";
-    } else if (DateTime.now().hour >= 12 && DateTime.now().hour < 18) {
+    } else if (DateTime.now().hour >= 12 && DateTime.now().hour <= 17) {
       teks = "Good Afternoon";
-    } if (DateTime.now().hour >= 18 && DateTime.now().hour < 00) {
+    } if (DateTime.now().hour >= 18 && DateTime.now().hour <= 23) {
       teks = "Good Evening";
     }
 

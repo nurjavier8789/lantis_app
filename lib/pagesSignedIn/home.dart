@@ -40,7 +40,7 @@ class _homessState extends State<homess> {
             items: [
               InkWell(
                 onTap: () {
-                  print("Clicked! Ready to go!!");
+                  Navigator.pushNamed(context, "/detailTiket");
                 },
                 child: Container(
                   margin: EdgeInsets.all(4),

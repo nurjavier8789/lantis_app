@@ -120,7 +120,7 @@ class _resultSearchState extends State<resultSearch> {
 
                   InkWell(
                     onTap: () {
-                      print("Clicked! Ready to go!!");
+                      Navigator.pushNamed(context, "/detailTiket");
                     },
                     child: resultSearchWidgets().resultCard("assets/poster/gambar_1.png", MediaQuery.of(context).size.width, "Synchronize Fest 2024", 350, "Gambir Expo Kemayoran, Jakarta Pusat"),
                   ),

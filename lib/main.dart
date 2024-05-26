@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'pagesSignedIn/ticketSelected/paymentSuccess.dart';
+import 'pagesSignedIn/ticketSelected/ticketDetail.dart';
+import 'pagesSignedIn/ticketSelected/payment.dart';
 import 'pagesSignedIn/search.dart';
-import 'pagesSignedIn/resultSearch.dart';
+import 'pages/forgorPass.dart';
 import 'pages/register.dart';
 import 'pages/login.dart';
-import 'pages/forgorPass.dart';
 import 'overlay.dart';
 
 void main() {
@@ -19,6 +21,9 @@ void main() {
         '/forgetPass': (context) => const forgorPass(),
         '/overlay': (context) => const overlay(),
         '/search': (context) => const searchPage(),
+        '/detailTiket': (context) => const ticketDetails(),
+        '/paymentMethod': (context) => const paymentMethod(),
+        '/paymentSuccess': (context) => const paymentSuccess(),
       },
         theme: ThemeData(
           appBarTheme: AppBarTheme(
