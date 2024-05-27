@@ -139,7 +139,7 @@ class _searchPageState extends State<searchPage> {
                       overlay().setIndex(1);
                       resultSearch().setTextInput(value);
                       print("User pressed enter with value: $value");
-                      Navigator.pushReplacementNamed(context, "/overlay");
+                      Navigator.pushNamedAndRemoveUntil(context, "/overlay", (route) => false);
                     },
                     maxLines: 1,
                     decoration: const InputDecoration(

@@ -17,6 +17,18 @@ class _registerState extends State<register> {
   final inputPass = TextEditingController();
   final inputConfirmPass = TextEditingController();
 
+  bool hidePass1 = true;
+  bool hidePass2 = true;
+
+  @override
+  void dispose() {
+    inputEmail.dispose();
+    inputUser.dispose();
+    inputPass.dispose();
+    inputConfirmPass.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -98,11 +110,22 @@ class _registerState extends State<register> {
                                     },
                                     enableSuggestions: false,
                                     autocorrect: false,
-                                    obscureText: true,
-                                    decoration: const InputDecoration(
+                                    obscureText: hidePass1,
+                                    decoration: InputDecoration(
                                       labelText: "Password",
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(14)),
+                                      ),
+                                      suffixIcon: IconButton(
+                                        color: const Color.fromRGBO(0, 0, 0, 120),
+                                        icon: Icon(hidePass1
+                                            ? Icons.visibility
+                                            : Icons.visibility_off),
+                                        onPressed: () {
+                                          setState(() {
+                                            hidePass1 = !hidePass1;
+                                          });
+                                        },
                                       ),
                                     ),
                                   ),
@@ -121,11 +144,22 @@ class _registerState extends State<register> {
                                     },
                                     enableSuggestions: false,
                                     autocorrect: false,
-                                    obscureText: true,
-                                    decoration: const InputDecoration(
+                                    obscureText: hidePass2,
+                                    decoration: InputDecoration(
                                       labelText: "Confirm Password",
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(14)),
+                                      ),
+                                      suffixIcon: IconButton(
+                                        color: const Color.fromRGBO(0, 0, 0, 120),
+                                        icon: Icon(hidePass2
+                                            ? Icons.visibility
+                                            : Icons.visibility_off),
+                                        onPressed: () {
+                                          setState(() {
+                                            hidePass2 = !hidePass2;
+                                          });
+                                        },
                                       ),
                                     ),
                                   ),
@@ -137,11 +171,7 @@ class _registerState extends State<register> {
                                   child: ElevatedButton(
                                     onPressed: () async {
                                       if (forming.currentState!.validate()) {
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                            SnackBar(content: Text("Email Berhasil dibuat!"), showCloseIcon: true, duration: Duration(seconds: 20),)
-                                        );
-                                        await FireAuthRegis.registerUsingEmailPassword(name: inputUser.text, email: inputEmail.text, password: inputPass.text);
-                                        Navigator.pushReplacementNamed(context, "/");
+                                        FireAuthRegis().registerMas(context, inputEmail.text, inputPass.text, inputUser.text);
                                       }
                                     },
                                     style: ElevatedButton.styleFrom(

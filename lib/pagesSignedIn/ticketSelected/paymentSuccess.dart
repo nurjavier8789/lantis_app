@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../widgets/ticketDetailWidgets.dart';
+import '../../overlay.dart';
 
 class paymentSuccess extends StatefulWidget {
   const paymentSuccess({super.key});
@@ -39,6 +39,7 @@ class _paymentSuccessState extends State<paymentSuccess> {
                     SizedBox(height: 24),
                     ElevatedButton(
                       onPressed: () {
+                        overlay().setIndex(0);
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(

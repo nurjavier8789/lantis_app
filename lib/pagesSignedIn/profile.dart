@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../pages/login.dart';
+
 bool notifToggle = true;
 
 class profilePage extends StatefulWidget {
@@ -153,6 +158,25 @@ class _profilePageState extends State<profilePage> {
                             Expanded(child: Container()),
                             Icon(Icons.keyboard_arrow_right_rounded, size: 32, color: Color.fromARGB(255, 132, 131, 131)),
                           ],
+                        ),
+                        SizedBox(height: 16),
+                        InkWell(
+                          onTap: () async {
+                            final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                            await FirebaseAuth.instance.signOut();
+                            prefs.setBool("remember_me", false);
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => login()), (route) => false);
+                          },
+                          child: Row(
+                            children: [
+                              Icon(Icons.logout, size: 28, color: Colors.red),
+                              SizedBox(width: 12),
+                              Text("Logout", style: TextStyle(color: Colors.red, fontWeight: FontWeight.w500, fontSize: 16)),
+                              Expanded(child: Container()),
+                              Icon(Icons.keyboard_arrow_right_rounded, size: 32, color: Colors.red),
+                            ],
+                          ),
                         ),
                       ],
                     ),

@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
 
 class forgorPass extends StatefulWidget {
   const forgorPass({super.key});
@@ -29,15 +30,15 @@ class _forgorPassState extends State<forgorPass> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(margin: EdgeInsets.only(top: 50)),
+                    Container(margin: const EdgeInsets.only(top: 50)),
                     Image.asset("assets/Lantis App fit picture.png", height: 121,),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(18),
                       child: Text("Forgot Password", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xFF8C8989)),
+                        border: Border.all(color: const Color(0xFF8C8989)),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Form(
@@ -66,23 +67,54 @@ class _forgorPassState extends State<forgorPass> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(right: 12, left: 12, bottom: 16, top: 16),
+                              margin: const EdgeInsets.only(right: 12, left: 12, bottom: 16, top: 16),
                               height: 60,
                               width: MediaQuery.of(context).size.width,
                               child: ElevatedButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   if (forming.currentState!.validate()) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(content: Text("Enail Telah Dikirim!"), showCloseIcon: true, duration: Duration(seconds: 20))
-                                    );
-                                    Navigator.pushReplacementNamed(context, '/');
+                                    FirebaseAuth auth = FirebaseAuth.instance;
+
+                                    try {
+                                      await auth.sendPasswordResetEmail(email: inputEmail.text);
+
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                          content: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text("Email sended!", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                              Text("You can check your email!", style: TextStyle(color: Colors.white)),
+                                            ],
+                                          ),
+                                          showCloseIcon: true,
+                                          duration: Duration(seconds: 20),
+                                          backgroundColor: Colors.green,
+                                        ),
+                                      );
+                                      Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
+                                    } catch (e) {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                          content: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text("Oops! Something went wrong!", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                              Text("Please try again!", style: TextStyle(color: Colors.white)),
+                                            ],
+                                          ),
+                                          showCloseIcon: true,
+                                          duration: Duration(seconds: 20),
+                                        ),
+                                      );
+                                    }
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(11)
                                   ),
-                                  backgroundColor: Color.fromARGB(255, 2, 48, 73),
+                                  backgroundColor: const Color.fromARGB(255, 2, 48, 73),
                                 ),
                                 child: const Text(
                                   "SEND",
