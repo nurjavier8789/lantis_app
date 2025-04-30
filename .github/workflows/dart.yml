@@ -6,12 +6,11 @@ on:
 jobs:
   build:
     name: Build App 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
-      - name: init
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
       - name: Set Up Java
         uses: actions/setup-java@v3.12.0
