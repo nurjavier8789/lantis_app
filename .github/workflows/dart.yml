@@ -9,6 +9,22 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - uses: actions/setup-node@v4
+      - run: |
+          npm i react react-dom react-script create-react-app webpack
+          
+      - name: "Upload Node Modules - v4"
+        uses: actions/upload-artifact@v4
+        with:
+          name: node_modules-v4
+          path: node_modules
+          
+      - uses: actions/download-artifact@v4
+        name: "Download Node Modules - v4"
+        with:
+          name: node_modules-v4
+          path: node_modules-v4
+          
       - name: Checkout Repository
         uses: actions/checkout@v4
 
